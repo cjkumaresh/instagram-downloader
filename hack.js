@@ -12,7 +12,6 @@ function downloadImages(url) {
 	var a = document.createElement("a");
 	document.body.appendChild(a);
 	a.style = "display: none";
-	
 	a.href = url.replace('s640x640/sh0.08/', '').replace('c202.0.676.676/', ''); // to convert into full resolution images
 	a.download = url.split("?")[0].split("/")[url.split("?")[0].split("/").length - 1];
 	a.click();
