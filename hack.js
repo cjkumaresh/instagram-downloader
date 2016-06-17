@@ -1,29 +1,40 @@
-var instagramImageClassName = '._icyx7';
-    imagesSelector = document.querySelectorAll(instagramImageClassName);
+var instagramImageClassName = '._icyx7',
+    instagramVideoClassName = '._c8hkj';
 
+//download function to download image/video from the url
+var download = (url) => {
+    var a = document.createElement("a");
+    document.body.appendChild(a);
+    a.style = "display: none";
+    a.href = url // to convert into full resolution images
+    a.download = url.split("?")[0].split("/")[url.split("?")[0].split("/").length - 1];
+    a.click();
+    window.URL.revokeObjectURL(url);
 
-// Iterate the images and call download function
-Array.prototype.forEach.call(imagesSelector, function(el, i){
-    downloadImages(el.getAttribute('src'));
-});
+}
 
-//download function to download image from the url
-function downloadImages(imageUrl) {
-    var xhr = new XMLHttpRequest();
-        a = document.createElement("a");
-        document.body.appendChild(a);
-        a.style = "display: none";
-    xhr.open('GET', imageUrl, true);
-    xhr.responseType = 'blob';
+var downloadImages = () => {
+    var imagesSelector = document.querySelectorAll(instagramImageClassName);
+    // Iterate the images and call download function
+    Array.prototype.forEach.call(imagesSelector, (el, i) => {
+        var url = el.getAttribute('src');
+        // Convert the image (640x640) url into full resolution images url
+        url = url.split('/').filter((val, index) => {
+            if (val.indexOf('c') === 0 || val === 'sh0.08' || val === 's640x640')
+                return false;
+            else
+                return true;
+        }).join('/');
+        download(url);
+    });
 
-    xhr.onload = function(e) {
-        var blob = new Blob([xhr.response], {type: 'image/png'}),
-        url = window.URL.createObjectURL(blob);
-        a.href = url;
-        a.download = imageUrl.split("?")[0].split("/")[imageUrl.split("?")[0].split("/").length - 1];
-        a.click();
-        window.URL.revokeObjectURL(url);
-    };
+}
 
-    xhr.send();
+var downloadVideos = () => {
+    var videoSelector = document.querySelectorAll(instagramVideoClassName);
+    // Iterate the videos and call download function
+    Array.prototype.forEach.call(videoSelector, (el, i) => {
+        var url = el.getAttribute('src');
+        download(url);
+    });
 }
