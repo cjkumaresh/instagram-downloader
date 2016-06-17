@@ -1,4 +1,4 @@
-# download-instagram-images
+# instagram-downloader
 download high quality images and videos from instagram :)
 
 ## How To Use
