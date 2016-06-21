@@ -5,8 +5,8 @@ download high quality images and videos from instagram :)
 - Open developer tools
 - Go to instagram profile that you want to dowload images
 - Copy the js code from `hack.js` and then execute
-- execute `downloadImages() // to download images`
-- execute `downloadVideos() // to download videos`
+- execute `downloadImages()` // to download images
+- execute `downloadVideos()` // to download videos
 - Make sure to enable `allow mutiple files download`
 
 Note: Tested only in chrome browser
