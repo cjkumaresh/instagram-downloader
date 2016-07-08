@@ -14,6 +14,4 @@ Note: Tested only in chrome browser
 ## Tip
 To download all images for a particular profile.
 - Go to the instagram profile and scroll till to the last image and then execute `downloadImages()`
-
-## Important
-Instagram disables the user from downloading images. So use the script at your own risk
+- 
