@@ -14,4 +14,5 @@ Note: Tested only in chrome browser
 ## Tip
 To download all images for a particular profile.
 - Go to the instagram profile and scroll till to the last image and then execute `downloadImages()`
-- 
+
+## Extension for chrome [![Version published on Chrome Web Store](https://img.shields.io/chrome-web-store/v/jhbapkbempcealhabaeicidlgbmhafmk.svg)](https://chrome.google.com/webstore/detail/instagram-downloader/jhbapkbempcealhabaeicidlgbmhafmk)
